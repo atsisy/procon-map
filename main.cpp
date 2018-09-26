@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <time.h>
+#include <string>
+#include <vector>
 using namespace std;
 
 inline void InitRand()
@@ -29,8 +31,9 @@ int main()
 	int x, y, half_X = 0, half_Y = 0;
 	int i, j;
 	int rem_x, rem_y;
-	int RED_PLAYER[2][2] = { 0 };
-	int Fdate[100];
+	int PLAYER[2];
+	
+	vector<char> V;
 
 	InitRand();
 
@@ -63,6 +66,23 @@ int main()
 	dec_date(date, x, y, half_Y, half_X);
 
 	show(date, x, y);
+
+	V.push_back(y);
+	V.push_back(' ');
+	V.push_back(x);
+	V.push_back(':');
+
+	for (i = 0; i < y; i++) {
+		for (j = 0; j < x; j++) {
+			V.push_back(date[i][j]);
+			V.push_back(' ');
+		}
+		V.push_back(':');
+	}
+
+	for (i = 0; i < 69; i++) {
+		cout << V[i];
+	}
 
 	return 0;
 }
